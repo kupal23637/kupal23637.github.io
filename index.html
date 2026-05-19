@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elysium Application</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700;900&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;700&family=Parisienne&family=Sacramento&family=Orbitron:wght@500;700&family=Unbounded:wght@400;700&family=Marcellus&family=Audiowide&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top,#5b21b6 0%,#0b0215 45%),
+    linear-gradient(to bottom,#08010f,#150320);
+    color:white;
+    padding:40px 20px;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    radial-gradient(#ffffff33 1px, transparent 1px);
+    background-size:35px 35px;
+    opacity:.22;
+    z-index:-5;
+}
+
+/* GLOW EFFECTS */
+
+.glow{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.18;
+    z-index:-4;
+}
+
+.glow1{
+    width:350px;
+    height:350px;
+    background:#9333ea;
+    top:-120px;
+    left:-100px;
+}
+
+.glow2{
+    width:300px;
+    height:300px;
+    background:#7e22ce;
+    bottom:-100px;
+    right:-100px;
+}
+
+.glow3{
+    width:250px;
+    height:250px;
+    background:#c084fc;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+/* FLOATING ITEMS */
+
+.float{
+    position:fixed;
+    font-size:42px;
+    opacity:.16;
+    animation:float 5s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.f1{
+    top:90px;
+    left:60px;
+}
+
+.f2{
+    top:150px;
+    right:90px;
+}
+
+.f3{
+    bottom:130px;
+    left:90px;
+}
+
+.f4{
+    bottom:90px;
+    right:70px;
+}
+
+.f5{
+    top:45%;
+    left:15%;
+}
+
+.f6{
+    top:55%;
+    right:15%;
+}
+
+@keyframes float{
+
+0%{
+    transform:translateY(0px);
+}
+
+50%{
+    transform:translateY(-18px);
+}
+
+100%{
+    transform:translateY(0px);
+}
+
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    width:100%;
+    max-width:1450px;
+    margin:auto;
+    background:rgba(10,0,20,.88);
+    border:2px solid #9333ea;
+    border-radius:40px;
+    padding:65px;
+    backdrop-filter:blur(14px);
+    position:relative;
+    overflow:hidden;
+    box-shadow:
+    0 0 40px #9333ea55,
+    inset 0 0 30px #9333ea22;
+}
+
+/* CORNERS */
+
+.corner{
+    position:absolute;
+    width:95px;
+    height:95px;
+    border:3px solid #d8b4fe;
+}
+
+.corner1{
+    top:18px;
+    left:18px;
+    border-right:none;
+    border-bottom:none;
+    border-radius:28px 0 0 0;
+}
+
+.corner2{
+    top:18px;
+    right:18px;
+    border-left:none;
+    border-bottom:none;
+    border-radius:0 28px 0 0;
+}
+
+.corner3{
+    bottom:18px;
+    left:18px;
+    border-right:none;
+    border-top:none;
+    border-radius:0 0 0 28px;
+}
+
+.corner4{
+    bottom:18px;
+    right:18px;
+    border-left:none;
+    border-top:none;
+    border-radius:0 0 28px 0;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:70px;
+    position:relative;
+}
+
+.header h1{
+    font-family:'Great Vibes',cursive;
+    font-size:135px;
+    color:#f3e8ff;
+    text-shadow:
+    0 0 15px #9333ea,
+    0 0 40px #9333ea,
+    0 0 80px #7e22ce;
+}
+
+.header h2{
+    margin-top:-15px;
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:10px;
+    font-size:20px;
+    color:#d8b4fe;
+}
+
+.header p{
+    margin-top:18px;
+    font-family:'Parisienne',cursive;
+    font-size:32px;
+    color:#f5d0fe;
+}
+
+/* DIVIDER */
+
+.divider{
+    width:100%;
+    height:2px;
+    background:
+    linear-gradient(
+    to right,
+    transparent,
+    #9333ea,
+    transparent
+    );
+    margin:40px 0;
+}
+
+/* SECTION */
+
+.section{
+    margin-bottom:45px;
+    border:1px solid #7e22ce;
+    border-radius:35px;
+    padding:38px;
+    background:rgba(255,255,255,.03);
+    position:relative;
+    transition:.4s;
+}
+
+.section:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 35px #9333ea44;
+}
+
+.section-title{
+    position:absolute;
+    top:-22px;
+    left:35px;
+    background:#0b0215;
+    padding:0 20px;
+    font-size:28px;
+    font-family:'Playfair Display',serif;
+    color:#f3e8ff;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* INPUTS */
+
+.input-group{
+    margin-bottom:22px;
+}
+
+label{
+    display:block;
+    margin-bottom:10px;
+    font-size:15px;
+    letter-spacing:1px;
+    color:#f5d0fe;
+    font-family:'Marcellus',serif;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:17px;
+    border-radius:18px;
+    border:1px solid #9333ea;
+    background:#150420;
+    color:white;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+textarea{
+    min-height:140px;
+    resize:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#e9d5ff;
+    box-shadow:
+    0 0 20px #9333ea66,
+    inset 0 0 8px #9333ea55;
+}
+
+/* CHECKBOX */
+
+.checkbox-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:15px;
+}
+
+.checkbox-group label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#180624;
+    padding:14px 20px;
+    border-radius:16px;
+    border:1px solid #7e22ce;
+    cursor:pointer;
+    transition:.3s;
+    font-family:'Audiowide',sans-serif;
+}
+
+.checkbox-group label:hover{
+    transform:scale(1.04);
+    background:#240937;
+    box-shadow:0 0 15px #9333ea55;
+}
+
+/* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.skill-card{
+    background:#14041f;
+    border:1px solid #7e22ce;
+    border-radius:24px;
+    padding:28px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.skill-card::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.05),
+    transparent
+    );
+    top:0;
+    left:-100%;
+}
+
+.skill-card:hover::before{
+    left:100%;
+    transition:.7s;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px #9333ea55;
+}
+
+.skill-title{
+    font-size:24px;
+    margin-bottom:14px;
+    color:#f5d0fe;
+    font-family:'Cinzel',serif;
+}
+
+.rating{
+    font-size:28px;
+    letter-spacing:6px;
+    color:#c084fc;
+}
+
+/* RULES */
+
+.rules-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.rule-card{
+    background:#150420;
+    border:1px solid #7e22ce;
+    border-radius:24px;
+    padding:28px;
+    text-align:center;
+    transition:.4s;
+}
+
+.rule-card:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 25px #9333ea55;
+}
+
+.rule-card h3{
+    margin-bottom:12px;
+    font-family:'Cinzel',serif;
+    color:#f3e8ff;
+    font-size:22px;
+}
+
+.rule-card p{
+    line-height:1.7;
+    color:#d8b4fe;
+}
+
+/* BUTTON */
+
+.button-area{
+    display:flex;
+    justify-content:center;
+    margin-top:70px;
+}
+
+.submit-btn{
+    padding:20px 90px;
+    border:none;
+    border-radius:35px;
+    background:
+    linear-gradient(
+    90deg,
+    #7e22ce,
+    #9333ea,
+    #c084fc
+    );
+    color:white;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:3px;
+    cursor:pointer;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+    font-family:'Orbitron',sans-serif;
+}
+
+.submit-btn::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+    );
+    top:0;
+    left:-100%;
+}
+
+.submit-btn:hover::before{
+    left:100%;
+    transition:.7s;
+}
+
+.submit-btn:hover{
+    transform:scale(1.06);
+    box-shadow:
+    0 0 30px #9333ea88,
+    0 0 60px #9333ea44;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:70px;
+    text-align:center;
+}
+
+.footer h2{
+    font-family:'Sacramento',cursive;
+    font-size:70px;
+    color:#f3e8ff;
+}
+
+.footer p{
+    margin-top:10px;
+    letter-spacing:4px;
+    color:#e9d5ff;
+    font-family:'Unbounded',sans-serif;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+.grid,
+.skills-grid,
+.rules-grid{
+    grid-template-columns:1fr;
+}
+
+.container{
+    padding:35px;
+}
+
+.header h1{
+    font-size:90px;
+}
+
+.header h2{
+    font-size:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+<div class="glow glow3"></div>
+
+<div class="float f1">🌸</div>
+<div class="float f2">🦋</div>
+<div class="float f3">✨</div>
+<div class="float f4">☾</div>
+<div class="float f5">💜</div>
+<div class="float f6">🌙</div>
+
+<div class="container">
+
+<div class="corner corner1"></div>
+<div class="corner corner2"></div>
+<div class="corner corner3"></div>
+<div class="corner corner4"></div>
+
+<div class="header">
+
+<h1>Elysium</h1>
+
+<h2>MINECRAFT SERVER APPLICATION</h2>
+
+<p>
+Minecraft Server Member Application
+</p>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+
+<div class="section-title">
+Personal Information
+</div>
+
+<div class="grid">
+
+<div>
+
+<div class="input-group">
+<label>IGN</label>
+<input type="text" placeholder="Enter IGN">
+</div>
+
+<div class="input-group">
+<label>Nickname</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Age</label>
+<input type="number">
+</div>
+
+<div class="input-group">
+<label>Birthday</label>
+<input type="date">
+</div>
+
+</div>
+
+<div>
+
+<div class="input-group">
+<label>City / Town</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Country</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Discord Username</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Favorite Color</label>
+
+<select>
+<option>Violet</option>
+<option>Purple</option>
+<option>Pink</option>
+<option>Blue</option>
+<option>Black</option>
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+Minecraft Information
+</div>
+
+<div class="checkbox-group">
+
+<label>
+<input type="checkbox">
+PC
+</label>
+
+<label>
+<input type="checkbox">
+Mobile
+</label>
+
+<label>
+<input type="checkbox">
+Console
+</label>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+<div>
+
+<div class="input-group">
+<label>Minecraft Username</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Version Played</label>
+<input type="text">
+</div>
+
+</div>
+
+<div>
+
+<div class="input-group">
+<label>Years Playing Minecraft</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Main Specialty</label>
+
+<select>
+<option>Building</option>
+<option>PvP</option>
+<option>Farming</option>
+<option>Mining</option>
+<option>Exploring</option>
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+About You
+</div>
+
+<div class="input-group">
+
+<label>
+Why do you want to join?
+</label>
+
+<textarea></textarea>
+
+</div>
+
+<div class="input-group">
+
+<label>
+What can you contribute?
+</label>
+
+<textarea></textarea>
+
+</div>
+
+<div class="checkbox-group">
+
+<label>
+<input type="checkbox">
+Active Daily
+</label>
+
+<label>
+<input type="checkbox">
+Friendly
+</label>
+
+<label>
+<input type="checkbox">
+Team Player
+</label>
+
+<label>
+<input type="checkbox">
+Follows Rules
+</label>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+Skills
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+<div class="skill-title">Building</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="skill-card">
+<div class="skill-title">PvP</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="skill-card">
+<div class="skill-title">Mining</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="skill-card">
+<div class="skill-title">Farming</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="skill-card">
+<div class="skill-title">Redstone</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="skill-card">
+<div class="skill-title">Exploring</div>
+<div class="rating">★★★★★</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+Server Rules
+</div>
+
+<div class="rules-grid">
+
+<div class="rule-card">
+<h3>Respect Everyone</h3>
+<p>
+Be respectful and kind to every member.
+</p>
+</div>
+
+<div class="rule-card">
+<h3>No Hacking</h3>
+<p>
+Using cheats or unfair advantages is prohibited.
+</p>
+</div>
+
+<div class="rule-card">
+<h3>No Toxicity</h3>
+<p>
+Keep the community peaceful and friendly.
+</p>
+</div>
+
+<div class="rule-card">
+<h3>No Griefing</h3>
+<p>
+Destroying builds without permission is forbidden.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+Extra Information
+</div>
+
+<div class="grid">
+
+<div class="input-group">
+
+<label>
+Hobbies
+</label>
+
+<textarea></textarea>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Additional Notes
+</label>
+
+<textarea></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="button-area">
+
+<button class="submit-btn">
+✦ SUBMIT APPLICATION ✦
+</button>
+
+</div>
+
+<div class="footer">
+
+<h2>
+Thank You
+</h2>
+
+<p>
+WELCOME TO THE ELYSIUM SERVER
+</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
